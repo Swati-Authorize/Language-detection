@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 
 # Load Model
-model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open("model/model.pkl", "rb"))
 cv = pickle.load(open("vectorizer.pkl", "rb"))
 
 # Page Configuration
