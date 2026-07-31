@@ -1,9 +1,18 @@
-import streamlit as st
+from pathlib import Path
 import pickle
 
+import streamlit as st
+
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "model.pkl"
+VECTORIZER_PATH = BASE_DIR / "vectorizer.pkl"
+
 # Load Model
-model = pickle.load(open("model/model.pkl", "rb"))
-cv = pickle.load(open("vectorizer.pkl", "rb"))
+with MODEL_PATH.open("rb") as model_file:
+    model = pickle.load(model_file)
+
+with VECTORIZER_PATH.open("rb") as vectorizer_file:
+    cv = pickle.load(vectorizer_file)
 
 # Page Configuration
 st.set_page_config(
